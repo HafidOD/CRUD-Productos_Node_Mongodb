@@ -1,0 +1,64 @@
+
+<% include partials/_header %>
+
+        <div class="container">
+            <div class="row">
+                <!-- FORM -->
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/add" method="POST">
+                                <div class="form-group">
+                                    <input type="text" name="name_product" placeholder="Nombre del producto" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <input type="number" name="price_product" placeholder="Costo del producto" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <input type="text" name="type" placeholder="Tipo de producto" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <input type="number" name="quantity" placeholder="Cantidad en stock" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Agregar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- LIST -->
+                <div class="col-md-7">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Tipo</th>
+                                <th>Stock</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i=0; i < productos.length; i++) { %>
+                                <tr>
+                                    <td><%= i + 1%></td>
+                                    <td><%= productos[i].name_product %></td>
+                                    <td><%= productos[i].price_product %></td>
+                                    <td><%= productos[i].type %></td>
+                                    <td><%= productos[i].quantity %></td>
+                                    <td>
+                                        <a href="/edit/<%= productos[i]._id %>" class="btn btn-info">Editar</a>
+                                        <a href="/delete/<%= productos[i]._id %>" class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+<% include partials/_footer %>

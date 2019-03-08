@@ -1,0 +1,32 @@
+<% include partials/_header %>
+
+    <div class="container">
+        <div class="row">
+            <!-- FORM -->
+<div class="col-md-5 offset-md-4">
+    <div class="card">
+        <div class="card-body">
+            <form action="/update/<%= pro._id %>" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name_product" placeholder="Nombre del producto" class="form-control" value="<%= pro.name_product %>">
+                </div>
+                <div class="form-group">
+                        <input type="number" name="price_product" placeholder="Costo del producto" class="form-control" value="<%= pro.price_product %>">
+                </div>
+                <div class="form-group">
+                        <input type="text" name="type" placeholder="Tipo de producto" class="form-control" value="<%= pro.type %>">
+                </div>
+                <div class="form-group">
+                        <input type="number" name="quantity" placeholder="Cantidad en stock" class="form-control" value="<%= pro.quantity %>">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Actualizar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+<% include partials/_footer %>
